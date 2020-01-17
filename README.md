@@ -1,5 +1,12 @@
 # shibboleth-webauthn
 
+## This Fork
+This fork was created from Duke's webauthn github repo.  Their repo was set up to easily deploy this extension into a docker container running an IDP, and used a locally sourced credential repository.
+
+This fork will aim to build a standalone version of the extension... which can be integrated into existing idp deployments.
+
+## Original info
+
 In progress
 
 Duke University is running a WebAuthn integration with Shibboleth in production.  This git repo is an adjustment to that integration to make it more generic (less Duke specific) and easier to quickly run and demo.
