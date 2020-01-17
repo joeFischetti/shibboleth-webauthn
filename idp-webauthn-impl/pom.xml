@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>jar</packaging>
+    <version>0.1.0</version>
+
+	<groupId>edu.duke.oit.idms</groupId>
+	<artifactId>idp-authn-webauthn-impl</artifactId>
+	<name>Shibboleth IdP v3 webauthn plugin</name>
+	<description>WebAuthn authentication module for Shibboleth IdP v3</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.version>3.2</maven.compiler.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<shib.idp.version>3.4.5</shib.idp.version>
+		<gson.version>2.3.1</gson.version>
+		<mobile.auth.version>1.0</mobile.auth.version>
+		<com.warrenstrange.version>0.5.0</com.warrenstrange.version>
+		<org.springframework.ldap.version>2.0.4.RELEASE</org.springframework.ldap.version>
+		<java-support.version>7.5.0</java-support.version>
+
+	</properties>
+
+		<dependencies>
+			<!-- Compile Dependencies -->
+		        <dependency>
+		            <groupId>com.yubico.java</groupId>
+		            <artifactId>yubico-validation-client</artifactId>
+				
+		            <version>2.0RC3</version>
+		        </dependency>
+<!-- https://mvnrepository.com/artifact/com.yubico/webauthn-server-core -->
+<dependency>
+    <groupId>com.yubico</groupId>
+    <artifactId>webauthn-server-core</artifactId>
+    <version>1.6.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jdk8 -->
+<dependency>
+    <groupId>com.fasterxml.jackson.datatype</groupId>
+    <artifactId>jackson-datatype-jdk8</artifactId>
+    <version>2.10.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>2.0.0-alpha1</version>
+</dependency>
+
+
+		        <dependency>
+		            <groupId>net.shibboleth.utilities</groupId>
+		            <artifactId>java-support</artifactId>
+		            <version>${java-support.version}</version>
+		        </dependency>
+			<dependency>
+				<groupId>net.shibboleth.idp</groupId>
+				<artifactId>idp-attribute-api</artifactId>
+				<version>${shib.idp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.shibboleth.idp</groupId>
+				<artifactId>idp-authn-api</artifactId>
+				<version>${shib.idp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.shibboleth.idp</groupId>
+				<artifactId>idp-attribute-resolver-api</artifactId>
+				<version>${shib.idp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.shibboleth.idp</groupId>
+				<artifactId>idp-attribute-resolver-spring</artifactId>
+				<version>${shib.idp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.shibboleth.idp</groupId>
+				<artifactId>idp-session-api</artifactId>
+				<version>${shib.idp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.shibboleth.idp</groupId>
+				<artifactId>idp-profile-api</artifactId>
+				<version>${shib.idp.version}</version>
+			</dependency>
+</dependencies>
+
+		
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -195,7 +195,7 @@ public class ValidateWebAuthnCredential extends AbstractValidationAction {
             try {
               RegistrationStorage.getInstance().updateSignatureCount(result);
             } catch (Exception e) {
-              log.warn("Failed to update signature count for user \"{}\", credential \"{}\"", result.getUsername(), assertionResponse.getCredential().getId(), e);
+              log.warn("Failed to update signature count for user \"{}\", credential \"{}\": {}", result.getUsername(), assertionResponse.getCredential().getId(), e);
             }
           } else {
             throw new RuntimeException("WebAuthn authentication error, warnings=" + result.getWarnings());
@@ -232,7 +232,7 @@ public class ValidateWebAuthnCredential extends AbstractValidationAction {
           recordSuccess();
           buildAuthenticationResult(profileRequestContext, authenticationContext);
         } catch (final Exception e) {
-          log.error("{} Authentication failure for '{}'", getLogPrefix(), username, e);
+          log.error("{} Authentication failure for '{}': {}", getLogPrefix(), username, e);
           handleError(profileRequestContext, authenticationContext, e, AuthnEventIds.AUTHN_EXCEPTION);
           recordFailure();
         }
